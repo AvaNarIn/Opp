@@ -530,3 +530,15 @@ input:focus-visible {
         flex-wrap: wrap;
     }
 }
+
+
+
+#login-error,
+.request-error {
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #e3b8b8;
+    border-radius: 5px;
+    color: #9b2828;
+    background: #fff0f0;
+}
