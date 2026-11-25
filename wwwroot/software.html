@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ПО проекта — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+
+<body class="project-page" data-page="software">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <a class="navigation-link" href="projects.html">
+                Мои проекты
+            </a>
+
+            <a class="navigation-link" href="support.html">
+                Поддержка
+            </a>
+
+
+            <p class="sidebar-label project-navigation-label">
+                ТЕКУЩИЙ ПРОЕКТ
+            </p>
+
+            <p class="current-project" data-project-name>
+                Code Hedgehog
+            </p>
+
+            <nav aria-label="Разделы проекта">
+                <a class="navigation-link"
+                   href="tickets.html?project=code-hedgehog"
+                   data-project-link>
+                    Тикеты
+                </a>
+
+                <a class="navigation-link active"
+                   href="software.html"
+                   data-project-link
+                   aria-current="page">
+                    ПО проекта
+                </a>
+
+                <a class="navigation-link"
+                   href="members.html"
+                   data-project-link>
+                    Участники
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область /
+                    <span data-project-name>Code Hedgehog</span>
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">АС</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Анна Сальникова</span>
+                        <span class="muted">Руководитель</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Программное обеспечение</h1>
+
+                        <p class="muted">
+                            Компоненты проекта, в которых вы отслеживаете баги.
+                        </p>
+                    </div>
+
+                    <button class="button button-primary"
+                            type="button"
+                            id="add-software">
+                        + Добавить ПО
+                    </button>
+                </div>
+
+                <nav class="project-tabs" aria-label="Вкладки проекта">
+                    <a class="project-tab"
+                       href="tickets.html?project=code-hedgehog"
+                       data-project-link>
+                        Тикеты
+                    </a>
+
+                    <a class="project-tab active"
+                       href="software.html"
+                       data-project-link
+                       aria-current="page">
+                        ПО
+                    </a>
+
+                    <a class="project-tab"
+                       href="members.html"
+                       data-project-link>
+                        Участники
+                    </a>
+                </nav>
+
+                <p class="page-message"
+                   id="page-message"
+                   role="status"
+                   hidden></p>
+
+                <section class="software-list"
+                         id="software-list"
+                         aria-label="Программное обеспечение проекта">
+                    <article class="software-card">
+                        <div class="software-information">
+                            <h2>Веб-сайт Code Hedgehog</h2>
+
+                            <p class="muted">
+                                Интерфейс студента и преподавателя
+                            </p>
+
+                            <div class="software-details">
+                                <span class="version-badge">
+                                    Версия 1.0
+                                </span>
+
+                                <span>8 тикетов</span>
+                            </div>
+
+                            <a class="software-link"
+                               href="https://code.hits.university"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                https://code.hits.university
+                            </a>
+                        </div>
+
+                        <div class="software-actions">
+                            <button class="button button-secondary"
+                                    type="button"
+                                    data-edit-software="web">
+                                Изменить
+                            </button>
+
+                            <a class="button button-secondary"
+                               href="tickets.html?project=code-hedgehog&software=web">
+                                Открыть тикеты
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="software-card">
+                        <div class="software-information">
+                            <h2>API Code Hedgehog</h2>
+
+                            <p class="muted">
+                                Серверная часть платформы
+                            </p>
+
+                            <div class="software-details">
+                                <span class="version-badge">
+                                    Версия 1.0
+                                </span>
+
+                                <span>0 тикетов</span>
+                            </div>
+
+                            <a class="software-link"
+                               href="https://github.com/team/example-api"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                github.com/team/example-api
+                            </a>
+                        </div>
+
+                        <div class="software-actions">
+                            <button class="button button-secondary"
+                                    type="button"
+                                    data-edit-software="api">
+                                Изменить
+                            </button>
+
+                            <a class="button button-secondary"
+                               href="tickets.html?project=code-hedgehog&software=api">
+                                Открыть тикеты
+                            </a>
+                        </div>
+                    </article>
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <dialog class="modal"
+            id="software-dialog"
+            aria-labelledby="software-dialog-title">
+        <div class="modal-heading">
+            <div>
+                <h2 id="software-dialog-title">
+                    Добавить ПО
+                </h2>
+
+                <p class="muted">
+                    Добавьте продукт или компонент, в котором ищете ошибки.
+                </p>
+            </div>
+
+            <button class="modal-close"
+                    type="button"
+                    data-close-software
+                    aria-label="Закрыть окно">
+                ×
+            </button>
+        </div>
+
+        <form id="software-form">
+            <div class="form-field">
+                <label for="software-name">
+                    Название ПО *
+                </label>
+
+                <input id="software-name"
+                       name="name"
+                       type="text"
+                       required>
+            </div>
+
+            <div class="form-field">
+                <label for="software-version">
+                    Версия *
+                </label>
+
+                <input id="software-version"
+                       name="version"
+                       type="text"
+                       required>
+            </div>
+
+            <div class="form-field">
+                <label for="software-link">
+                    Ссылка на ПО
+                </label>
+
+                <input id="software-link"
+                       name="link"
+                       type="url"
+                       placeholder="https://">
+            </div>
+
+            <div class="modal-actions">
+                <button class="button"
+                        type="button"
+                        data-close-software>
+                    Отмена
+                </button>
+
+                <button class="button button-primary"
+                        type="submit">
+                    Добавить ПО
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="page-scripts.js" defer></script>
+</body>
+</html>

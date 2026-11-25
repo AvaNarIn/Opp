@@ -18,11 +18,9 @@
             <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
 
             <nav aria-label="Основная навигация">
-                <a
-                    class="navigation-link active"
-                    href="projects.html"
-                    aria-current="page"
-                >
+                <a class="navigation-link active"
+                   href="projects.html"
+                   aria-current="page">
                     <span aria-hidden="true">▦</span>
                     Мои проекты
                 </a>
@@ -55,11 +53,9 @@
                         </p>
                     </div>
 
-                    <button
-                        class="button button-primary"
-                        type="button"
-                        disabled
-                    >
+                    <button class="button button-primary"
+                            type="button"
+                            id="create-project">
                         + Создать проект
                     </button>
                 </div>
@@ -99,9 +95,10 @@
                                 <span>РК</span>
                             </div>
 
-                            <button class="button button-secondary" type="button" disabled>
+                            <a class="button button-secondary"
+                               href="tickets.html?project=code-hedgehog">
                                 Открыть проект →
-                            </button>
+                            </a>
                         </div>
                     </article>
 
@@ -188,5 +185,76 @@
             </main>
         </div>
     </div>
+    <dialog class="modal create-project-dialog"
+            id="project-dialog"
+            aria-labelledby="project-dialog-title">
+        <div class="modal-heading">
+            <div>
+                <h2 id="project-dialog-title">
+                    Создать проект
+                </h2>
+
+                <p class="muted">
+                    Объедините команду и ПО в одном рабочем пространстве.
+                </p>
+            </div>
+
+            <button class="modal-close"
+                    type="button"
+                    data-close-project
+                    aria-label="Закрыть окно">
+                ×
+            </button>
+        </div>
+
+        <form id="project-form">
+            <div class="form-field">
+                <label for="project-name">
+                    Название проекта *
+                </label>
+
+                <input id="project-name"
+                       name="name"
+                       type="text"
+                       required>
+            </div>
+
+            <div class="form-field">
+                <label for="project-description">
+                    Описание
+                </label>
+
+                <textarea id="project-description"
+                          name="description"
+                          rows="3"></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="project-link">
+                    Ссылка на репозиторий или продукт
+                </label>
+
+                <input id="project-link"
+                       name="link"
+                       type="url"
+                       placeholder="https://">
+            </div>
+
+            <div class="modal-actions">
+                <button class="button"
+                        type="button"
+                        data-close-project>
+                    Отмена
+                </button>
+
+                <button class="button button-primary"
+                        type="submit">
+                    Создать проект
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="page-scripts.js" defer></script>
 </body>
 </html>

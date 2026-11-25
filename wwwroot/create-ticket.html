@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Создание тикета — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css?v=5">
+</head>
+
+<body class="project-page" data-page="create-ticket">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <a class="navigation-link" href="projects.html">
+                Мои проекты
+            </a>
+
+            <p class="sidebar-label project-navigation-label">
+                ТЕКУЩИЙ ПРОЕКТ
+            </p>
+
+            <a class="navigation-link" href="support.html">
+                Поддержка
+            </a>
+
+            <p class="current-project" data-project-name>
+                Code Hedgehog
+            </p>
+
+            <nav aria-label="Разделы проекта">
+                <a class="navigation-link active"
+                   href="tickets.html?project=code-hedgehog"
+                   data-project-link>
+                    Тикеты
+                </a>
+
+                <a class="navigation-link"
+                   href="software.html"
+                   data-project-link>
+                    ПО проекта
+                </a>
+
+                <a class="navigation-link"
+                   href="members.html"
+                   data-project-link>
+                    Участники
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область /
+                    <span data-project-name>Code Hedgehog</span>
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">ИП</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Иван Петров</span>
+                        <span class="muted">Тестировщик</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Создание тикета</h1>
+
+                        <p class="muted">
+                            Code Hedgehog / Тикеты / Новый тикет
+                        </p>
+                    </div>
+                </div>
+
+                <nav class="project-tabs" aria-label="Вкладки проекта">
+                    <a class="project-tab active"
+                       href="tickets.html?project=code-hedgehog"
+                       data-project-link>
+                        Тикеты
+                    </a>
+
+                    <a class="project-tab"
+                       href="software.html"
+                       data-project-link>
+                        ПО
+                    </a>
+
+                    <a class="project-tab"
+                       href="members.html"
+                       data-project-link>
+                        Участники
+                    </a>
+                </nav>
+
+                <p class="page-message"
+                   id="page-message"
+                   role="status"
+                   hidden></p>
+
+                <form id="ticket-form">
+                    <div class="ticket-form-grid">
+
+                        <section class="content-panel ticket-description">
+                            <h2>Описание проблемы</h2>
+
+                            <div class="form-field">
+                                <label for="ticket-name">
+                                    Название *
+                                </label>
+
+                                <input id="ticket-name"
+                                       name="name"
+                                       type="text"
+                                       required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="ticket-description">
+                                    Описание *
+                                </label>
+
+                                <textarea id="ticket-description"
+                                          name="description"
+                                          rows="3"
+                                          required></textarea>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="ticket-steps">
+                                    Шаги воспроизведения *
+                                </label>
+
+                                <textarea id="ticket-steps"
+                                          name="steps"
+                                          rows="5"
+                                          required></textarea>
+                            </div>
+
+                            <div class="result-fields">
+                                <div class="form-field">
+                                    <label for="expected-result">
+                                        Ожидаемый результат *
+                                    </label>
+
+                                    <textarea id="expected-result"
+                                              name="expectedResult"
+                                              rows="4"
+                                              required></textarea>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="actual-result">
+                                        Фактический результат *
+                                    </label>
+
+                                    <textarea id="actual-result"
+                                              name="actualResult"
+                                              rows="4"
+                                              required></textarea>
+                                </div>
+                            </div>
+
+                            <p class="form-note">
+                                * Обязательные поля
+                            </p>
+                        </section>
+
+                        <section class="content-panel ticket-parameters">
+                            <h2>Параметры и вложения</h2>
+
+                            <div class="form-field">
+                                <label for="ticket-software">
+                                    Программное обеспечение *
+                                </label>
+
+                                <select id="ticket-software"
+                                        name="software"
+                                        required>
+                                    <option value="">Выберите ПО</option>
+
+                                    <option value="web">
+                                        Веб-сайт Code Hedgehog
+                                    </option>
+
+                                    <option value="api">
+                                        API Code Hedgehog
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="ticket-version">
+                                    Версия с ошибкой *
+                                </label>
+
+                                <input id="ticket-version"
+                                       name="version"
+                                       type="text"
+                                       placeholder="Например, 1.0"
+                                       required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="ticket-priority">
+                                    Приоритет *
+                                </label>
+
+                                <select id="ticket-priority"
+                                        name="priority"
+                                        required>
+                                    <option value="">
+                                        Выберите приоритет
+                                    </option>
+
+                                    <option value="Low">Низкий</option>
+                                    <option value="Medium">Средний</option>
+                                    <option value="High">Высокий</option>
+                                    <option value="Critical">Критический</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <span class="field-label">
+                                    Скриншоты и логи
+                                </span>
+
+                                <div class="file-picker">
+                                    <label class="file-button"
+                                           for="ticket-files">
+                                        + Выбрать файлы
+                                    </label>
+
+                                    <input class="visually-hidden"
+                                           id="ticket-files"
+                                           type="file"
+                                           accept=".png,.jpg,.jpeg,.pdf,.txt,.log"
+                                           multiple>
+
+                                    <p class="form-note">
+                                        PNG, JPG, PDF, TXT, LOG · до 10 МБ
+                                    </p>
+                                </div>
+
+                                <p class="field-error"
+                                   id="file-error"
+                                   role="alert"
+                                   hidden></p>
+
+                                <ul class="attachment-list"
+                                    id="attachment-list"></ul>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <a class="button"
+                           href="tickets.html?project=code-hedgehog"
+                           data-project-link>
+                            Отмена
+                        </a>
+
+                        <button class="button button-primary"
+                                type="submit">
+                            Создать тикет
+                        </button>
+                    </div>
+                </form>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="page-scripts.js" defer></script>
+</body>
+</html>

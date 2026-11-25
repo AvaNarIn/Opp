@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Карточка тикета — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css?v=6">
+</head>
+
+<body class="project-page" data-page="ticket-manager">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <a class="navigation-link" href="projects.html">
+                Мои проекты
+            </a>
+
+            <a class="navigation-link" href="support.html">
+                Поддержка
+            </a>
+
+            <p class="sidebar-label project-navigation-label">
+                ТЕКУЩИЙ ПРОЕКТ
+            </p>
+
+            <p class="current-project">Code Hedgehog</p>
+
+            <nav aria-label="Разделы проекта">
+                <a class="navigation-link active"
+                   href="tickets.html?project=code-hedgehog">
+                    Тикеты
+                </a>
+
+                <a class="navigation-link" href="software.html">
+                    ПО проекта
+                </a>
+
+                <a class="navigation-link" href="members.html">
+                    Участники
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область / Code Hedgehog
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">АС</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Анна Сальникова</span>
+                        <span class="muted">Руководитель</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>
+                            После тестов решение не поступает преподавателю
+                        </h1>
+
+                        <p class="muted">
+                            CH-001 · Создан 07.11.2026 (Иван Петров) ·
+                            Веб-сайт Code Hedgehog
+                        </p>
+                    </div>
+                </div>
+
+                <nav class="project-tabs" aria-label="Вкладки проекта">
+                    <a class="project-tab active"
+                       href="tickets.html?project=code-hedgehog">
+                        Тикеты
+                    </a>
+
+                    <a class="project-tab" href="software.html">
+                        ПО
+                    </a>
+
+                    <a class="project-tab" href="members.html">
+                        Участники
+                    </a>
+                </nav>
+
+                <div class="ticket-card-grid">
+
+                    <section class="content-panel ticket-section">
+                        <h2>Описание и вложения</h2>
+
+                        <h3>Описание</h3>
+
+                        <p>
+                            Тесты пройдены, но статус решения остаётся
+                            «Тестирование». Преподаватель не видит
+                            решение в очереди.
+                        </p>
+
+                        <h3>Шаги воспроизведения</h3>
+
+                        <ol>
+                            <li>Войти студентом.</li>
+                            <li>Открыть задачу «Сортировка массива».</li>
+                            <li>Отправить корректное решение.</li>
+                            <li>Дождаться завершения тестов.</li>
+                            <li>Обновить страницу.</li>
+                        </ol>
+
+                        <div class="result-fields">
+                            <div>
+                                <h3>Ожидаемый результат</h3>
+
+                                <p>
+                                    Статус «Ожидает проверки».
+                                    Решение видно преподавателю.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3>Фактический результат</h3>
+
+                                <p>
+                                    Статус «Тестирование».
+                                    Решение не видно преподавателю.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Вложения · 2</h3>
+
+                        <div class="ticket-attachment">
+                            <strong>submission-status.png</strong>
+                            <span>Скриншот · 248 КБ</span>
+                        </div>
+
+                        <div class="ticket-attachment">
+                            <strong>test-results.log</strong>
+                            <span>Лог браузера · 12 КБ</span>
+                        </div>
+                    </section>
+
+                    <section class="content-panel ticket-management">
+                        <h2>Управление тикетом</h2>
+
+                        <p class="ticket-meta">
+                            Статус: В работе · Приоритет: высокий
+                        </p>
+
+                        <form id="assignment-form">
+                            <div class="form-field">
+                                <label for="ticket-assignee">
+                                    Ответственный
+                                </label>
+
+                                <select id="ticket-assignee"
+                                        name="assigneeId"
+                                        required>
+                                    <option value="dmitry">
+                                        Дмитрий Иванов
+                                    </option>
+
+                                    <option value="roman">
+                                        Роман Кишкин
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="ticket-deadline">
+                                    Дедлайн
+                                </label>
+
+                                <input id="ticket-deadline"
+                                       name="deadline"
+                                       type="date"
+                                       value="2026-11-09">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="planning-reason">
+                                    Основание планирования
+                                </label>
+
+                                <textarea id="planning-reason"
+                                          name="planningReason"
+                                          rows="3">Блокирует сдачу практики</textarea>
+                            </div>
+
+                            <p class="form-note">
+                                Укажите, кто исправляет баг, к какому
+                                сроку и почему выбраны эти сроки.
+                            </p>
+
+                            <button class="button button-primary"
+                                    type="submit">
+                                Сохранить назначение
+                            </button>
+                        </form>
+                    </section>
+
+                </div>
+
+                <section class="content-panel ticket-history">
+                    <h2>История тикета</h2>
+
+                    <ul class="history-list">
+                        <li>
+                            <time datetime="2026-11-08T10:20">
+                                08.11, 10:20
+                            </time>
+
+                            <span>
+                                Дмитрий Иванов начал исправление
+                            </span>
+                        </li>
+
+                        <li>
+                            <time datetime="2026-11-07T16:40">
+                                07.11, 16:40
+                            </time>
+
+                            <span>
+                                Назначены ответственный и дедлайн:
+                                09.11.2026
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="page-scripts.js" defer></script>
+</body>
+</html>

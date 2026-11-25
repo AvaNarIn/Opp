@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Тикеты проекта — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="project-page" data-page="tickets">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <a class="navigation-link" href="projects.html">
+                Мои проекты
+            </a>
+
+            <a class="navigation-link" href="support.html">
+                Поддержка
+            </a>
+
+            <p class="sidebar-label project-navigation-label">
+                ТЕКУЩИЙ ПРОЕКТ
+            </p>
+
+            <p class="current-project" data-project-name>
+                Code Hedgehog
+            </p>
+
+            <nav aria-label="Разделы проекта">
+                <a class="navigation-link active"
+                   href="tickets.html"
+                   data-project-link
+                   aria-current="page">
+                    Тикеты
+                </a>
+
+                <a class="navigation-link"
+                   href="software.html"
+                   data-project-link>
+                    ПО проекта
+                </a>
+
+                <a class="navigation-link"
+                   href="members.html"
+                   data-project-link>
+                    Участники
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область /
+                    <span data-project-name>Code Hedgehog</span>
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">АС</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Анна Сальникова</span>
+                        <span class="muted">Руководитель</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Тикеты проекта</h1>
+
+                        <p class="muted">
+                            Проект:
+                            <span data-project-name>Code Hedgehog</span>
+                        </p>
+                    </div>
+
+                    <a class="button button-primary"
+                       href="create-ticket.html"
+                       data-project-link>
+                        + Создать тикет
+                    </a>
+                </div>
+
+                <nav class="project-tabs" aria-label="Вкладки проекта">
+                    <a class="project-tab active"
+                       href="tickets.html"
+                       data-project-link
+                       aria-current="page">
+                        Тикеты
+                    </a>
+
+                    <a class="project-tab"
+                       href="software.html"
+                       data-project-link>
+                        ПО
+                    </a>
+
+                    <a class="project-tab"
+                       href="members.html"
+                       data-project-link>
+                        Участники
+                    </a>
+                </nav>
+
+                <p class="page-message"
+                   id="page-message"
+                   role="status"
+                   hidden></p>
+
+                <section class="ticket-statistics"
+                         aria-label="Статистика тикетов">
+                    <div class="stat-card">
+                        <strong id="total-count">8</strong>
+                        <span>Всего тикетов</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <strong id="progress-count">2</strong>
+                        <span>В работе</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <strong id="review-count">1</strong>
+                        <span>На проверке</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <strong id="closed-count">2</strong>
+                        <span>Закрыто</span>
+                    </div>
+                </section>
+
+                <section class="content-panel ticket-panel"
+                         aria-label="Список тикетов">
+                    <form class="ticket-filters"
+                          id="ticket-filters"
+                          role="search">
+                        <div class="filter-field">
+                            <label for="ticket-search">Поиск</label>
+
+                            <input id="ticket-search"
+                                   type="search"
+                                   placeholder="Название или номер тикета">
+                        </div>
+
+                        <div class="filter-field">
+                            <label for="software-filter">ПО</label>
+
+                            <select id="software-filter">
+                                <option value="">Все ПО</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-field">
+                            <label for="priority-filter">Приоритет</label>
+
+                            <select id="priority-filter">
+                                <option value="">Все</option>
+                                <option>Низкий</option>
+                                <option>Средний</option>
+                                <option>Высокий</option>
+                                <option>Критический</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-field">
+                            <label for="status-filter">Статус</label>
+
+                            <select id="status-filter">
+                                <option value="">Все</option>
+                                <option>Новый</option>
+                                <option>В работе</option>
+                                <option>На проверке</option>
+                                <option>На доработке</option>
+                                <option>Закрыт</option>
+                            </select>
+                        </div>
+
+                        <button class="text-button reset-filters"
+                                type="reset">
+                            Сбросить
+                        </button>
+                    </form>
+
+                    <div class="list-tabs"
+                         role="tablist"
+                         aria-label="Активные и архивные тикеты">
+                        <button class="list-tab active"
+                                id="active-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="true"
+                                aria-controls="ticket-results"
+                                tabindex="0">
+                            Активные
+                        </button>
+
+                        <button class="list-tab"
+                                id="archive-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                                aria-controls="ticket-results"
+                                tabindex="-1">
+                            Архив
+                            <span id="archive-count">(2)</span>
+                        </button>
+                    </div>
+
+                    <div id="ticket-results"
+                         role="tabpanel"
+                         aria-labelledby="active-tab">
+                        <div class="table-scroll">
+                            <table class="data-table tickets-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Тикет</th>
+                                        <th scope="col">Статус</th>
+                                        <th scope="col">Приоритет</th>
+                                        <th scope="col">Ответственный</th>
+                                        <th scope="col">Дедлайн</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tickets-body">
+                                    <tr>
+                                        <td>
+                                            <a class="ticket-title" href="ticket-manager.html">
+                                                После тестов решение не поступает преподавателю
+                                            </a>
+
+                                            <span class="ticket-code">
+                                                CH-001 · Веб-сайт · 1.0
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <span class="status-badge status-progress">
+                                                В работе
+                                            </span>
+                                        </td>
+
+                                        <td class="priority-text">Высокий</td>
+                                        <td>Д. Иванов</td>
+                                        <td>09.11.2026</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="empty-state"
+                             id="tickets-empty"
+                             hidden>
+                            <h2>По вашему запросу ничего не найдено</h2>
+                            <p>Измените запрос или сбросьте фильтры.</p>
+                        </div>
+                    </div>
+
+                    <div class="table-footer">
+                        <span id="results-count"
+                              aria-live="polite"></span>
+
+                        <span>1</span>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

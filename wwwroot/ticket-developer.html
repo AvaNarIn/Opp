@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Работа над тикетом — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css?v=8">
+</head>
+
+<body class="project-page" data-page="ticket-developer">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <a class="navigation-link" href="projects.html">
+                Мои проекты
+            </a>
+
+            <a class="navigation-link" href="support.html">
+                Поддержка
+            </a>
+
+            <p class="sidebar-label project-navigation-label">
+                ТЕКУЩИЙ ПРОЕКТ
+            </p>
+
+            <p class="current-project">Code Hedgehog</p>
+
+            <nav aria-label="Разделы проекта">
+                <a class="navigation-link active"
+                   href="tickets.html?project=code-hedgehog">
+                    Тикеты
+                </a>
+
+                <a class="navigation-link" href="software.html">
+                    ПО проекта
+                </a>
+
+                <a class="navigation-link" href="members.html">
+                    Участники
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область / Code Hedgehog
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">ДИ</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Дмитрий Иванов</span>
+                        <span class="muted">Разработчик</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>
+                            После тестов решение не поступает преподавателю
+                        </h1>
+
+                        <p class="muted">
+                            CH-001 · Создан Иваном Петровым 07.11.2026 ·
+                            Веб-сайт Code Hedgehog
+                        </p>
+                    </div>
+                </div>
+
+                <nav class="project-tabs" aria-label="Вкладки проекта">
+                    <a class="project-tab active"
+                       href="tickets.html?project=code-hedgehog">
+                        Тикеты
+                    </a>
+
+                    <a class="project-tab" href="software.html">
+                        ПО
+                    </a>
+
+                    <a class="project-tab" href="members.html">
+                        Участники
+                    </a>
+                </nav>
+
+                <div class="ticket-card-grid">
+
+                    <section class="content-panel ticket-section">
+                        <h2>Описание и вложения</h2>
+
+                        <h3>Описание</h3>
+
+                        <p>
+                            Тесты пройдены, но статус решения остаётся
+                            «Тестирование». Преподаватель не видит
+                            решение в очереди.
+                        </p>
+
+                        <h3>Шаги воспроизведения</h3>
+
+                        <ol>
+                            <li>Войти студентом.</li>
+                            <li>Открыть задачу «Сортировка массива».</li>
+                            <li>Отправить корректное решение.</li>
+                            <li>Дождаться завершения тестов.</li>
+                            <li>Обновить страницу.</li>
+                        </ol>
+
+                        <div class="result-fields">
+                            <div>
+                                <h3>Ожидаемый результат</h3>
+
+                                <p>
+                                    Статус «Ожидает проверки».
+                                    Решение видно преподавателю.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3>Фактический результат</h3>
+
+                                <p>
+                                    Статус «Тестирование».
+                                    Решение не видно преподавателю.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Вложения · 2</h3>
+
+                        <div class="ticket-attachment">
+                            <strong>submission-status.png</strong>
+                            <span>Скриншот · 248 КБ</span>
+                        </div>
+
+                        <div class="ticket-attachment">
+                            <strong>test-results.log</strong>
+                            <span>Лог браузера · 12 КБ</span>
+                        </div>
+                    </section>
+
+                    <div class="ticket-side-panels">
+
+                        <section class="content-panel ticket-planning">
+                            <h2>Планирование</h2>
+
+                            <div class="ticket-badges">
+                                <span class="status-badge status-progress">
+                                    В работе
+                                </span>
+
+                                <span class="status-badge priority-high">
+                                    Высокий
+                                </span>
+                            </div>
+
+                            <h3>Ответственный</h3>
+                            <p>Дмитрий Иванов</p>
+
+                            <h3>Дедлайн</h3>
+                            <p>09.11.2026</p>
+
+                            <h3>Основание планирования</h3>
+
+                            <p>
+                                Блокирует сдачу практики.<br>
+                                Исправить до демонстрации.
+                            </p>
+                        </section>
+
+                        <section class="content-panel ticket-work">
+                            <h2>Работа над тикетом</h2>
+
+                            <p class="work-description">
+                                Вы исправляете этот баг
+                            </p>
+
+                            <p class="work-hint">
+                                После исправления укажите коммит или MR
+                                и сборку, в которой можно проверить результат.
+                            </p>
+
+                            <button class="button button-primary"
+                                    type="button"
+                                    id="send-for-review">
+                                Передать на проверку
+                            </button>
+                        </section>
+
+                    </div>
+                </div>
+
+                <section class="content-panel ticket-history">
+                    <h2>История тикета</h2>
+
+                    <ul class="history-list">
+                        <li>
+                            <time datetime="2026-11-08T10:20">
+                                08.11, 10:20
+                            </time>
+
+                            <span>
+                                Дмитрий Иванов начал исправление
+                            </span>
+                        </li>
+
+                        <li>
+                            <time datetime="2026-11-07T16:40">
+                                07.11, 16:40
+                            </time>
+
+                            <span>
+                                Назначены ответственный и дедлайн:
+                                09.11.2026
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <dialog class="modal"
+            id="review-dialog"
+            aria-labelledby="review-dialog-title">
+        <div class="modal-heading">
+            <h2 id="review-dialog-title">
+                Передать на проверку
+            </h2>
+
+            <button class="modal-close"
+                    type="button"
+                    data-close-review
+                    aria-label="Закрыть окно">
+                ×
+            </button>
+        </div>
+
+        <p class="review-ticket">
+            CH-001 · После тестов решение не поступает преподавателю
+        </p>
+
+        <form id="fix-form">
+            <div class="form-field">
+                <label for="fix-description">
+                    Что исправлено *
+                </label>
+
+                <textarea id="fix-description"
+                          name="fixDescription"
+                          rows="3"
+                          required></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="commit-url">
+                    Ссылка на коммит или MR *
+                </label>
+
+                <input id="commit-url"
+                       name="commitUrl"
+                       type="url"
+                       placeholder="https://"
+                       required>
+            </div>
+
+            <div class="form-field">
+                <label for="test-build">
+                    Сборка для проверки *
+                </label>
+
+                <input id="test-build"
+                       name="testBuild"
+                       type="text"
+                       placeholder="Например, build-1245"
+                       required>
+            </div>
+
+            <div class="form-field">
+                <label for="fix-release">
+                    Релиз исправления
+                </label>
+
+                <input id="fix-release"
+                       name="fixRelease"
+                       type="text"
+                       placeholder="Например, 1.0.1">
+            </div>
+
+            <div class="review-notice">
+                <p>Тикет перейдёт в статус «На проверке».</p>
+                <p>Результат проверит тестировщик проекта.</p>
+            </div>
+
+            <div class="modal-actions">
+                <button class="button"
+                        type="button"
+                        data-close-review>
+                    Отмена
+                </button>
+
+                <button class="button button-primary"
+                        type="button"
+                        id="send-for-review"
+                        disabled>
+                    Передать на проверку
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+</body>
+</html>

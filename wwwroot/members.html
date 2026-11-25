@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Участники проекта — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+
+<body class="project-page" data-page="members">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <a class="navigation-link" href="projects.html">
+                Мои проекты
+            </a>
+
+            <a class="navigation-link" href="support.html">
+                Поддержка
+            </a>
+
+            <p class="sidebar-label project-navigation-label">
+                ТЕКУЩИЙ ПРОЕКТ
+            </p>
+
+            <p class="current-project" data-project-name>
+                Code Hedgehog
+            </p>
+
+            <nav aria-label="Разделы проекта">
+                <a class="navigation-link"
+                   href="tickets.html?project=code-hedgehog"
+                   data-project-link>
+                    Тикеты
+                </a>
+
+                <a class="navigation-link"
+                   href="software.html"
+                   data-project-link>
+                    ПО проекта
+                </a>
+
+                <a class="navigation-link active"
+                   href="members.html"
+                   data-project-link
+                   aria-current="page">
+                    Участники
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область /
+                    <span data-project-name>Code Hedgehog</span>
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">АС</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Анна Сальникова</span>
+                        <span class="muted">Руководитель</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Участники проекта</h1>
+
+                        <p class="muted">
+                            От роли участника зависит набор доступных действий.
+                            Для смены роли необходимо обратиться к руководителю проекта.
+                        </p>
+                    </div>
+
+                    <button class="button button-primary"
+                            type="button"
+                            id="add-member">
+                        + Добавить участника
+                    </button>
+                </div>
+
+                <nav class="project-tabs" aria-label="Вкладки проекта">
+                    <a class="project-tab"
+                       href="tickets.html?project=code-hedgehog"
+                       data-project-link>
+                        Тикеты
+                    </a>
+
+                    <a class="project-tab"
+                       href="software.html"
+                       data-project-link>
+                        ПО
+                    </a>
+
+                    <a class="project-tab active"
+                       href="members.html"
+                       data-project-link
+                       aria-current="page">
+                        Участники
+                    </a>
+                </nav>
+
+                <p class="page-message"
+                   id="page-message"
+                   role="status"
+                   hidden></p>
+
+                <section class="content-panel team-panel"
+                         aria-label="Команда проекта">
+                    <h2>
+                        Команда
+                        <span data-project-name>Code Hedgehog</span>
+                    </h2>
+
+                    <div class="table-scroll">
+                        <table class="data-table members-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Участник</th>
+                                    <th scope="col">Роль в проекте</th>
+                                    <th scope="col">Действия</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="members-body">
+                                <tr>
+                                    <td>
+                                        <div class="member-identity">
+                                            <span class="avatar">АС</span>
+
+                                            <div>
+                                                <strong>Анна Сальникова</strong>
+                                                <span class="member-email">
+                                                    salnikova.anna@почта
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <span class="status-badge role-manager">
+                                            Руководитель
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="muted">Это вы</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="member-identity">
+                                            <span class="avatar">ДИ</span>
+
+                                            <div>
+                                                <strong>Дмитрий Иванов</strong>
+                                                <span class="member-email">
+                                                    dmitriy@почта
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <span class="status-badge role-member">
+                                            Разработчик
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <div class="member-actions">
+                                            <select class="role-select"
+                                                    aria-label="Роль участника Дмитрий Иванов"
+                                                    data-member-role="dmitry">
+                                                <option selected>Разработчик</option>
+                                                <option>Тестировщик</option>
+                                            </select>
+
+                                            <button class="text-button danger-button"
+                                                    type="button"
+                                                    data-remove-member="dmitry">
+                                                Удалить
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="member-identity">
+                                            <span class="avatar">ИП</span>
+
+                                            <div>
+                                                <strong>Иван Петров</strong>
+                                                <span class="member-email">
+                                                    ivan@почта
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <span class="status-badge role-member">
+                                            Тестировщик
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <div class="member-actions">
+                                            <select class="role-select"
+                                                    aria-label="Роль участника Иван Петров"
+                                                    data-member-role="ivan">
+                                                <option>Разработчик</option>
+                                                <option selected>Тестировщик</option>
+                                            </select>
+
+                                            <button class="text-button danger-button"
+                                                    type="button"
+                                                    data-remove-member="ivan">
+                                                Удалить
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="member-identity">
+                                            <span class="avatar">РК</span>
+
+                                            <div>
+                                                <strong>Роман Кишкин</strong>
+                                                <span class="member-email">
+                                                    romanKishkin@почта
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <span class="status-badge role-member">
+                                            Разработчик
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <div class="member-actions">
+                                            <select class="role-select"
+                                                    aria-label="Роль участника Роман Кишкин"
+                                                    data-member-role="roman">
+                                                <option selected>Разработчик</option>
+                                                <option>Тестировщик</option>
+                                            </select>
+
+                                            <button class="text-button danger-button"
+                                                    type="button"
+                                                    data-remove-member="roman">
+                                                Удалить
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <dialog class="modal"
+            id="member-dialog"
+            aria-labelledby="member-dialog-title">
+        <div class="modal-heading">
+            <div>
+                <h2 id="member-dialog-title">
+                    Добавить участника
+                </h2>
+
+                <p class="muted">
+                    Выберите зарегистрированного пользователя
+                    и роль в проекте.
+                </p>
+            </div>
+
+            <button class="modal-close"
+                    type="button"
+                    data-close-member
+                    aria-label="Закрыть окно">
+                ×
+            </button>
+        </div>
+
+        <form id="member-form">
+            <div class="form-field">
+                <label for="member-user">
+                    Пользователь *
+                </label>
+
+                <select id="member-user" name="userId" required>
+                    <option value="">Выберите пользователя</option>
+
+                    <option value="maria">
+                        Мария Смирнова · maria@почта
+                    </option>
+
+                    <option value="alexey">
+                        Алексей Орлов · alexey@почта
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="member-role">
+                    Роль в проекте *
+                </label>
+
+                <select id="member-role" name="role" required>
+                    <option value="">Выберите роль</option>
+                    <option value="Tester">Тестировщик</option>
+                    <option value="Developer">Разработчик</option>
+                </select>
+            </div>
+
+            <p class="form-note">
+                Роль определяет доступные участнику действия.
+            </p>
+
+            <div class="modal-actions">
+                <button class="button"
+                        type="button"
+                        data-close-member>
+                    Отмена
+                </button>
+
+                <button class="button button-primary"
+                        type="submit">
+                    Добавить
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="page-scripts.js" defer></script>
+</body>
+</html>

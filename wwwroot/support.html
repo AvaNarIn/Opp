@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Поддержка — Bugtrack</title>
+
+    <link rel="stylesheet" href="styles.css?v=10">
+</head>
+
+<body class="project-page">
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">b</span>
+                <span>bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <nav aria-label="Основная навигация">
+                <a class="navigation-link" href="projects.html">
+                    Мои проекты
+                </a>
+
+                <a class="navigation-link active"
+                   href="support.html"
+                   aria-current="page">
+                    Поддержка
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+
+            <header class="topbar">
+                <p class="breadcrumbs">
+                    Рабочая область / Поддержка
+                </p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">АС</span>
+
+                    <div class="user-info">
+                        <span class="user-name">
+                            Анна Сальникова
+                        </span>
+
+                        <span class="muted">
+                            Руководитель
+                        </span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-content">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Поддержка</h1>
+
+                        <p class="muted">
+                            Личная переписка с администратором.
+                        </p>
+                    </div>
+                </div>
+
+                <section class="support-chat"
+                         aria-label="Чат с администратором">
+                    <header class="support-chat-header">
+                        <span class="avatar" aria-hidden="true">
+                            АД
+                        </span>
+
+                        <div>
+                            <h2>Администратор</h2>
+                            <p>Поддержка Bugtrack</p>
+                        </div>
+                    </header>
+
+                    <div class="support-messages"
+                         id="support-messages">
+                        <div class="support-empty">
+                            <h2>Пока нет сообщений</h2>
+
+                            <p>
+                                Здесь будет ваша переписка
+                                с администратором.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="support-composer">
+                        <label class="visually-hidden"
+                               for="support-text">
+                            Сообщение
+                        </label>
+
+                        <textarea id="support-text"
+                                  name="text"
+                                  rows="2"
+                                  placeholder="Напишите сообщение..."></textarea>
+
+                        <button class="button button-primary"
+                                id="support-send"
+                                type="button"
+                                disabled>
+                            Отправить
+                        </button>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>
