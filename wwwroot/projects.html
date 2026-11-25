@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои проекты — Bugtrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <a class="brand" href="projects.html">
+                <span class="brand-icon">B</span>
+                <span>Bugtrack</span>
+            </a>
+
+            <p class="sidebar-label">РАБОЧАЯ ОБЛАСТЬ</p>
+
+            <nav aria-label="Основная навигация">
+                <a
+                    class="navigation-link active"
+                    href="projects.html"
+                    aria-current="page"
+                >
+                    <span aria-hidden="true">▦</span>
+                    Мои проекты
+                </a>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <p class="breadcrumbs">Рабочая область / Мои проекты</p>
+
+                <div class="user-menu">
+                    <span class="avatar" aria-hidden="true">АС</span>
+
+                    <div class="user-info">
+                        <span class="user-name">Анна Сальникова</span>
+                        <span class="muted">Руководитель</span>
+                    </div>
+
+                    <a class="logout-link" href="index.html">Выйти</a>
+                </div>
+            </header>
+
+            <main class="page-content">
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">ПРОЕКТЫ</p>
+                        <h1>Мои проекты</h1>
+                        <p class="muted">
+                            Проекты, участниками которых вы являетесь
+                        </p>
+                    </div>
+
+                    <button
+                        class="button button-primary"
+                        type="button"
+                        disabled
+                    >
+                        + Создать проект
+                    </button>
+                </div>
+
+                <section class="projects-grid" aria-label="Список проектов">
+                    <article class="project-card">
+                        <div class="project-card-heading">
+                            <span class="project-icon icon-purple" aria-hidden="true">
+                                CH
+                            </span>
+                            <span class="badge">6 активных</span>
+                        </div>
+
+                        <h2>Code Hedgehog</h2>
+
+                        <p class="project-description">
+                            Платформа для практики программирования
+                        </p>
+
+                        <div class="project-statistics">
+                            <div>
+                                <strong>8</strong>
+                                <span>тикетов</span>
+                            </div>
+
+                            <div>
+                                <strong>4</strong>
+                                <span>участника</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <div class="team-avatars" aria-label="Участники проекта">
+                                <span>АС</span>
+                                <span>ДИ</span>
+                                <span>ИП</span>
+                                <span>РК</span>
+                            </div>
+
+                            <button class="button button-secondary" type="button" disabled>
+                                Открыть проект →
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-card-heading">
+                            <span class="project-icon icon-blue" aria-hidden="true">
+                                TI
+                            </span>
+                            <span class="badge">3 активных</span>
+                        </div>
+
+                        <h2>TSU InTime</h2>
+
+                        <p class="project-description">
+                            Сервис университетского расписания
+                        </p>
+
+                        <div class="project-statistics">
+                            <div>
+                                <strong>5</strong>
+                                <span>тикетов</span>
+                            </div>
+
+                            <div>
+                                <strong>4</strong>
+                                <span>участника</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <div class="team-avatars" aria-label="Участники проекта">
+                                <span>АС</span>
+                                <span>ДИ</span>
+                                <span>ИП</span>
+                                <span>РК</span>
+                            </div>
+
+                            <button class="button button-secondary" type="button" disabled>
+                                Открыть проект →
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-card-heading">
+                            <span class="project-icon icon-green" aria-hidden="true">
+                                SP
+                            </span>
+                            <span class="badge">2 активных</span>
+                        </div>
+
+                        <h2>Study Planner</h2>
+
+                        <p class="project-description">
+                            Планировщик учебных задач и дедлайнов
+                        </p>
+
+                        <div class="project-statistics">
+                            <div>
+                                <strong>3</strong>
+                                <span>тикета</span>
+                            </div>
+
+                            <div>
+                                <strong>4</strong>
+                                <span>участника</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <div class="team-avatars" aria-label="Участники проекта">
+                                <span>АС</span>
+                                <span>ДИ</span>
+                                <span>ИП</span>
+                                <span>РК</span>
+                            </div>
+
+                            <button class="button button-secondary" type="button" disabled>
+                                Открыть проект →
+                            </button>
+                        </div>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

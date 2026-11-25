@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — Bugtrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="login-page">
+    <main class="login-layout">
+        <section class="login-description">
+            <a class="brand" href="index.html">
+                <span class="brand-icon">B</span>
+                <span>Bugtrack</span>
+            </a>
+
+            <div>
+                <p class="eyebrow">БАГ-ТРЕКЕР СТУДЕНЧЕСКИХ ПРОЕКТОВ</p>
+                <h1>От найденной ошибки<br>до проверенного исправления</h1>
+            </div>
+
+            <p class="login-footer">Проекты · Команда · Тикеты</p>
+        </section>
+
+        <section class="login-form-area">
+            <div class="login-card">
+                <p class="eyebrow">РАБОЧАЯ ОБЛАСТЬ</p>
+                <h2>Войти в Bugtrack</h2>
+                <p class="muted">
+                    Войдите, чтобы продолжить работу с проектами.
+                </p>
+
+                <form id="login-form">
+                    <div class="form-field">
+                        <label for="email">Электронная почта</label>
+                        <input
+                            id="email"
+                            type="email"
+                            autocomplete="username"
+                            placeholder="name@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">Пароль</label>
+
+                        <div class="password-field">
+                            <input
+                                id="password"
+                                type="password"
+                                autocomplete="current-password"
+                                placeholder="Введите пароль"
+                                required
+                            >
+
+                            <button
+                                id="toggle-password"
+                                class="password-toggle"
+                                type="button"
+                                aria-controls="password"
+                                aria-pressed="false"
+                            >
+                                Показать
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="button button-primary login-submit" type="submit">
+                        Войти
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
