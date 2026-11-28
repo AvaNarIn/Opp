@@ -26,6 +26,10 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<ISoftwareService, SoftwareService>();
 builder.Services.AddScoped<ITicketService, TicketService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<ISupportService, SupportService>();
+builder.Services.AddScoped<IAttachmentFileService, AttachmentFileService>();
+builder.Services.AddSingleton<AttachmentStorage>();
 
 builder.Services.AddScoped<
     IPasswordHasher<User>,

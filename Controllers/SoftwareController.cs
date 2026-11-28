@@ -69,4 +69,62 @@ public class SoftwareController : ControllerBase
 
         return Ok(software);
     }
+
+
+    [HttpPut("{softwareId:guid}")]
+    public async Task<IActionResult> Update(
+        Guid projectId,
+        Guid softwareId,
+        UpdateSoftwareRequest data)
+    {
+        var id = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+
+        if (!Guid.TryParse(id, out var userId))
+        {
+            return Unauthorized();
+        }
+
+        try
+        {
+            var software = await softwareService.UpdateAsync(userId, projectId, softwareId, data);
+            return Ok(software);
+        }
+        catch (TicketOperationException exception)
+        {
+            return StatusCode(
+                exception.StatusCode,
+                new
+                {
+                    message = exception.Message
+                });
+        }
+    }
+
+    [HttpDelete("{softwareId:guid}")]
+    public async Task<IActionResult> Delete(
+        Guid projectId,
+        Guid softwareId)
+    {
+        var id = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+
+        if (!Guid.TryParse(id, out var userId))
+        {
+            return Unauthorized();
+        }
+
+        try
+        {
+            await softwareService.DeleteAsync(userId,projectId, softwareId);
+            return NoContent();
+        }
+        catch (TicketOperationException exception)
+        {
+            return StatusCode(
+                exception.StatusCode,
+                new
+                {
+                    message = exception.Message
+                });
+        }
+    }
 }

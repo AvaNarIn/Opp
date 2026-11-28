@@ -8,12 +8,15 @@ using System.Linq.Expressions;
 public class TicketService : ITicketService
 {
     private readonly AppDbContext db;
+    private readonly AttachmentStorage attachmentStorage;
 
-    public TicketService(AppDbContext db)
+    public TicketService(
+        AppDbContext db,
+        AttachmentStorage attachmentStorage)
     {
         this.db = db;
+        this.attachmentStorage = attachmentStorage;
     }
-
     public async Task<TicketResponse> CreateAsync(
         Guid userId,
         Guid projectId,
@@ -71,7 +74,7 @@ public class TicketService : ITicketService
         TicketQueryRequest data)
     {
         await RequireMemberAsync(userId, projectId);
-
+                
         Require(
             data.Page >= 1 &&
             data.PageSize >= 1 &&
@@ -602,13 +605,13 @@ public class TicketService : ITicketService
         };
     }
 
-    public Task RemoveAttachmentAsync(
+    public async Task RemoveAttachmentAsync(
         Guid userId,
         Guid projectId,
         Guid ticketId,
         Guid attachmentId)
     {
-        return MutateAsync(
+        await MutateAsync(
             userId,
             projectId,
             ticketId,
@@ -634,6 +637,8 @@ public class TicketService : ITicketService
 
                 db.Attachments.Remove(attachment!);
             });
+
+        attachmentStorage.DeleteIfExists(attachmentId);
     }
 
 

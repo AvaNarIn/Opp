@@ -13,3 +13,7 @@ public class CreateSoftwareRequest
     [StringLength(1000)]
     public string Link { get; set; } = "";
 }
+
+public class UpdateSoftwareRequest : CreateSoftwareRequest
+{
+}

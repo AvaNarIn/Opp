@@ -212,5 +212,35 @@ public class ProjectsController : ControllerBase
         }
     }
 
-    
+    [HttpPut("{projectId:guid}")]
+    public async Task<IActionResult> Update(
+        Guid projectId,
+        UpdateProjectRequest data)
+    {
+        var id = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+
+        if (!Guid.TryParse(id, out var userId))
+        {
+            return Unauthorized();
+        }
+
+        try
+        {
+            var project = await projectService.UpdateAsync(
+                userId,
+                projectId,
+                data);
+
+            return Ok(project);
+        }
+        catch (TicketOperationException exception)
+        {
+            return StatusCode(
+                exception.StatusCode,
+                new
+                {
+                    message = exception.Message
+                });
+        }
+    }
 }

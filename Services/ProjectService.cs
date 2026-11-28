@@ -290,4 +290,56 @@ public class ProjectService : IProjectService
 
         return ChangeProjectMemberResult.Success;
     }
+
+    public async Task<ProjectResponse> UpdateAsync(
+        Guid userId,
+        Guid projectId,
+        UpdateProjectRequest data)
+    {
+        await using var transaction = await db.Database.BeginTransactionAsync();
+
+        var projects = await db.Projects
+            .FromSqlInterpolated(
+                $"SELECT * FROM projects WHERE \"Id\" = {projectId} FOR UPDATE")
+            .ToListAsync();
+
+        var project = projects.SingleOrDefault();
+
+        var member = await db.ProjectMembers
+            .AsNoTracking()
+            .SingleOrDefaultAsync(item =>
+                item.ProjectId == projectId &&
+                item.UserId == userId);
+
+        if (project == null || member == null)
+        {
+            throw new TicketOperationException(
+                404,
+                "Проект не найден.");
+        }
+
+        if (member.Role != ProjectRole.Manager)
+        {
+            throw new TicketOperationException(
+                403,
+                "Редактировать проект может только менеджер.");
+        }
+
+        project.Name = data.Name.Trim();
+        project.Description = data.Description.Trim();
+        project.Link = data.Link.Trim();
+
+        await db.SaveChangesAsync();
+        await transaction.CommitAsync();
+
+        return new ProjectResponse
+        {
+            Id = project.Id,
+            Name = project.Name,
+            Description = project.Description,
+            Link = project.Link,
+            CreatedAt = project.CreatedAt,
+            Role = member.Role
+        };
+    }
 }

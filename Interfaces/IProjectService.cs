@@ -11,4 +11,5 @@ public interface IProjectService
     Task<ChangeProjectMemberResult> ChangeMemberRoleAsync(Guid userId, Guid projectId, Guid memberId, ChangeProjectMemberRoleRequest data);
 
     Task<ChangeProjectMemberResult> RemoveMemberAsync(Guid userId, Guid projectId, Guid memberId);
+    Task<ProjectResponse> UpdateAsync(Guid userId, Guid projectId, UpdateProjectRequest data);
 }
